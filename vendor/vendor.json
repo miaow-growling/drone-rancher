@@ -1,0 +1,51 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "rkJQEXx+nMV5pFLDaUvU4RS9mUU=",
+			"path": "github.com/Sirupsen/logrus",
+			"revision": "d417be0fe654de640a82370515129985b407c7e3",
+			"revisionTime": "2020-03-22T13:43:59Z"
+		},
+		{
+			"path": "github.com/cpuguy83/go-md2man/v2/md2man",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "zmk4lWpYrZl5zc9Za1ESlEnQHLU=",
+			"path": "github.com/gorilla/websocket",
+			"revision": "b65e62901fc1c0d968042419e74789f6af455eb9",
+			"revisionTime": "2020-03-19T17:50:51Z"
+		},
+		{
+			"checksumSHA1": "Z7rkupTQRAZzzTCqDLiSbNR70to=",
+			"path": "github.com/konsorten/go-windows-terminal-sequences",
+			"revision": "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e",
+			"revisionTime": "2019-02-26T22:47:05Z"
+		},
+		{
+			"checksumSHA1": "DyNU6v+sa7IrwD3MEIBePwMXjRE=",
+			"path": "github.com/pkg/errors",
+			"revision": "614d223910a179a466c1767a985424175c39b465",
+			"revisionTime": "2020-01-14T19:47:44Z"
+		},
+		{
+			"checksumSHA1": "qzusP9WrkwP3MTY4bTRKNcJTRXg=",
+			"path": "github.com/rancher/go-rancher/v2",
+			"revision": "222ed122ed79d4facfa1bfbb24772530e0f9f900",
+			"revisionTime": "2019-03-20T04:19:36Z"
+		},
+		{
+			"checksumSHA1": "/ggZ71+qAWZLxaHxEGfNW03HjYo=",
+			"path": "github.com/urfave/cli",
+			"revision": "95b323fc6f14d98e19657073228a4a01a90a9010",
+			"revisionTime": "2020-04-02T03:48:17Z"
+		},
+		{
+			"path": "golang.org/x/sys/unix",
+			"revision": ""
+		}
+	],
+	"rootPath": "drone-rancher"
+}

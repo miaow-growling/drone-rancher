@@ -27,5 +27,5 @@ coverage.out
 drone-rancher
 
 *.idea
-vendor
+# vendor
 release

@@ -3,7 +3,7 @@ name: default
 
 workspace:
   base: /go
-  path: src/github.com/josmo/drone-rancher
+  path: src/github.com/miaow-growling/drone-rancher
 steps:
 - name: deps
   image: golang:1.10

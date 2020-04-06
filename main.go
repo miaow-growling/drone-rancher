@@ -22,68 +22,68 @@ func main() {
 
 	app.Flags = []cli.Flag{
 
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:   "url",
 			Usage:  "url to the rancher api",
-			EnvVar: "PLUGIN_URL, RANCHER_URL",
+			EnvVars: []string{"PLUGIN_URL", "RANCHER_URL"},
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:   "access-key",
 			Usage:  "rancher access key",
-			EnvVar: "PLUGIN_ACCESS_KEY, RANCHER_ACCESS_KEY",
+			EnvVars: []string{"PLUGIN_ACCESS_KEY", "RANCHER_ACCESS_KEY"},
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:   "secret-key",
 			Usage:  "rancher secret key",
-			EnvVar: "PLUGIN_SECRET_KEY, RANCHER_SECRET_KEY",
+			EnvVars: []string{"PLUGIN_SECRET_KEY", "RANCHER_SECRET_KEY"},
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:   "service",
 			Usage:  "Service to act on",
-			EnvVar: "PLUGIN_SERVICE",
+			EnvVars: []string{"PLUGIN_SERVICE"},
 		},
-		cli.StringSliceFlag{
+		&cli.StringSliceFlag{
 			Name:   "sidekick",
 			Usage:  "Service's sidekick name and image separated by the space, supports multiple flags",
-			EnvVar: "PLUGIN_SIDEKICK",
+			EnvVars: []string{"PLUGIN_SIDEKICK"},
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:   "docker-image",
 			Usage:  "image to use",
-			EnvVar: "PLUGIN_DOCKER_IMAGE",
+			EnvVars: []string{"PLUGIN_DOCKER_IMAGE"},
 		},
-		cli.BoolTFlag{
+		&cli.BoolFlag{
 			Name:   "start-first",
 			Usage:  "Start new container before stoping old",
-			EnvVar: "PLUGIN_START_FIRST",
+			EnvVars: []string{"PLUGIN_START_FIRST"},
 		},
-		cli.BoolFlag{
+		&cli.BoolFlag{
 			Name:   "confirm",
 			Usage:  "auto confirm the service upgrade if successful",
-			EnvVar: "PLUGIN_CONFIRM",
+			EnvVars: []string{"PLUGIN_CONFIRM"},
 		},
-		cli.IntFlag{
+		&cli.IntFlag{
 			Name:   "timeout",
 			Usage:  "the maximum wait time in seconds for the service to upgrade",
 			Value:  30,
-			EnvVar: "PLUGIN_TIMEOUT",
+			EnvVars: []string{"PLUGIN_TIMEOUT"},
 		},
-		cli.Int64Flag{
+		&cli.Int64Flag{
 			Name:   "interval-millis",
 			Usage:  "The interval for batch size upgrade",
 			Value:  1000,
-			EnvVar: "PLUGIN_INTERVAL_MILLIS",
+			EnvVars: []string{"PLUGIN_INTERVAL_MILLIS"},
 		},
-		cli.Int64Flag{
+		&cli.Int64Flag{
 			Name:   "batch-size",
 			Usage:  "The upgrade batch size",
 			Value:  1,
-			EnvVar: "PLUGIN_BATCH_SIZE",
+			EnvVars: []string{"PLUGIN_BATCH_SIZE"},
 		},
-		cli.BoolTFlag{
+		&cli.BoolFlag{
 			Name:   "yaml-verified",
 			Usage:  "Ensure the yaml was signed",
-			EnvVar: "DRONE_YAML_VERIFIED",
+			EnvVars: []string{"DRONE_YAML_VERIFIED"},
 		},
 	}
 
@@ -100,12 +100,12 @@ func run(c *cli.Context) error {
 		Service:             c.String("service"),
 		SidekickDockerImage: c.StringSlice("sidekick"),
 		DockerImage:         c.String("docker-image"),
-		StartFirst:          c.BoolT("start-first"),
+		StartFirst:          c.Bool("start-first"),
 		Confirm:             c.Bool("confirm"),
 		Timeout:             c.Int("timeout"),
 		IntervalMillis:      c.Int64("interval-millis"),
 		BatchSize:           c.Int64("batch-size"),
-		YamlVerified:        c.BoolT("yaml-verified"),
+		YamlVerified:        c.Bool("yaml-verified"),
 	}
 	return plugin.Exec()
 }

@@ -9,8 +9,18 @@
 			"revisionTime": "2020-03-22T13:43:59Z"
 		},
 		{
-			"path": "github.com/cpuguy83/go-md2man/v2/md2man",
+			"checksumSHA1": "moQGNLCxdtTqFRp0/djaAxSjknE=",
+			"path": "github.com/cpuguy83/go-md2man",
+			"revision": "217d7bd9dd5494abdf2877afbeb24ba0e11b43d6",
+			"revisionTime": "2019-12-16T18:52:43Z"
+		},
+		{
+			"path": "github.com/cpuguy83/go-md2man/v2",
 			"revision": ""
+		},
+		{
+			"path": "github.com/cpuguy83/go-md2man/v2/md2man",
+			"revision": "217d7bd9dd5494abdf2877afbeb24ba0e11b43d6"
 		},
 		{
 			"checksumSHA1": "zmk4lWpYrZl5zc9Za1ESlEnQHLU=",
@@ -37,10 +47,30 @@
 			"revisionTime": "2019-03-20T04:19:36Z"
 		},
 		{
-			"checksumSHA1": "/ggZ71+qAWZLxaHxEGfNW03HjYo=",
+			"checksumSHA1": "pvaXTqyoqnwZrF3lAEkfZvBxFtQ=",
+			"origin": "github.com/cpuguy83/go-md2man/vendor/github.com/russross/blackfriday/v2",
+			"path": "github.com/russross/blackfriday/v2",
+			"revision": "217d7bd9dd5494abdf2877afbeb24ba0e11b43d6",
+			"revisionTime": "2019-12-16T18:52:43Z"
+		},
+		{
+			"checksumSHA1": "IGPrksV2kzWSKV1wgQq7ze+pCE0=",
+			"origin": "github.com/cpuguy83/go-md2man/vendor/github.com/shurcooL/sanitized_anchor_name",
+			"path": "github.com/shurcooL/sanitized_anchor_name",
+			"revision": "217d7bd9dd5494abdf2877afbeb24ba0e11b43d6",
+			"revisionTime": "2019-12-16T18:52:43Z"
+		},
+		{
+			"checksumSHA1": "BOA1EE8f5Gq59iYBipJFT/neNoM=",
 			"path": "github.com/urfave/cli",
-			"revision": "95b323fc6f14d98e19657073228a4a01a90a9010",
-			"revisionTime": "2020-04-02T03:48:17Z"
+			"revision": "d648edd48d89ef3a841b1ec75c2ebbd4de5f748f",
+			"revisionTime": "2020-03-06T12:46:02Z",
+			"version": "v2",
+			"versionExact": "v2.2.0"
+		},
+		{
+			"path": "github.com/urfave/cli/v2",
+			"revision": ""
 		},
 		{
 			"path": "golang.org/x/sys/unix",

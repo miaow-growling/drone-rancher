@@ -76,9 +76,8 @@ type App struct {
 	Writer io.Writer
 	// ErrWriter writes error output
 	ErrWriter io.Writer
-	// ExitErrHandler processes any error encountered while running an App before
-	// it is returned to the caller. If no function is provided, HandleExitCoder
-	// is used as the default behavior.
+	// Execute this function to handle ExitErrors. If not provided, HandleExitCoder is provided to
+	// function as a default, so this is optional.
 	ExitErrHandler ExitErrHandlerFunc
 	// Other custom info
 	Metadata map[string]interface{}
@@ -118,7 +117,6 @@ func NewApp() *App {
 		Action:       helpCommand.Action,
 		Compiled:     compileTime(),
 		Writer:       os.Stdout,
-		ErrWriter:    os.Stderr,
 	}
 }
 
@@ -164,10 +162,6 @@ func (a *App) Setup() {
 		a.Writer = os.Stdout
 	}
 
-	if a.ErrWriter == nil {
-		a.ErrWriter = os.Stderr
-	}
-
 	var newCommands []*Command
 
 	for _, c := range a.Commands {
@@ -200,6 +194,10 @@ func (a *App) Setup() {
 
 	if a.Metadata == nil {
 		a.Metadata = make(map[string]interface{})
+	}
+
+	if a.Writer == nil {
+		a.Writer = os.Stdout
 	}
 }
 
@@ -327,7 +325,7 @@ func (a *App) RunContext(ctx context.Context, arguments []string) (err error) {
 // code in the cli.ExitCoder
 func (a *App) RunAndExitOnError() {
 	if err := a.Run(os.Args); err != nil {
-		_, _ = fmt.Fprintln(a.ErrWriter, err)
+		_, _ = fmt.Fprintln(a.errWriter(), err)
 		OsExiter(1)
 	}
 }
@@ -479,6 +477,15 @@ func (a *App) VisibleCommands() []*Command {
 // VisibleFlags returns a slice of the Flags with Hidden=false
 func (a *App) VisibleFlags() []Flag {
 	return visibleFlags(a.Flags)
+}
+
+func (a *App) errWriter() io.Writer {
+	// When the app ErrWriter is nil use the package level one.
+	if a.ErrWriter == nil {
+		return ErrWriter
+	}
+
+	return a.ErrWriter
 }
 
 func (a *App) appendFlag(fl Flag) {
